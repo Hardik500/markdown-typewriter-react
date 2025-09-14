@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
-A React component that renders markdown content with a smooth typewriter animation effect. Perfect for creating engaging documentation, tutorials, or any content that benefits from a dynamic typing animation.
+A React component that renders markdown content with a smooth, natural typewriter animation. It types the raw markdown character-by-character while rendering it progressively in real time — perfect for demos, docs, and tutorials.
 
 ## ✨ Features
 
@@ -67,7 +67,10 @@ The main component that renders markdown with typewriter effect.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `markdown` | `string` | - | **Required.** The markdown content to render |
-| `delay` | `number` | `75` | Typing delay in milliseconds |
+| `delay` | `number` | `75` | Typing delay per tick in milliseconds |
+| `charsPerTick` | `number` | `1` | How many characters to reveal per tick (>= 1) |
+| `showRaw` | `boolean` | `false` | Also show the raw markdown being typed with a caret |
+| `layout` | `'stack'` or `'split'` | `stack` | Layout when `showRaw` is true. `split` shows raw and rendered side-by-side |
 | `className` | `string` | - | Additional CSS class name |
 | `style` | `React.CSSProperties` | - | Inline styles |
 

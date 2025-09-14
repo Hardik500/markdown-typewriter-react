@@ -7,6 +7,10 @@ interface MarkdownTypewriterProps {
   markdown: string;
   /** Typing delay in milliseconds */
   delay?: number;
+  /** Number of characters to type per tick (>=1) */
+  charsPerTick?: number;
+  /** Layout when showing raw + rendered */
+  layout?: "stack" | "split";
   /** Additional CSS class name */
   className?: string;
   /** Inline styles */
@@ -18,6 +22,8 @@ interface MarkdownTypewriterProps {
 const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
   markdown,
   delay = 75,
+  charsPerTick = 1,
+  layout = "stack",
   className = "",
   style,
   showRaw = false,
@@ -25,7 +31,7 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
   const [typed, setTyped] = useState("");
   const timerRef = useRef<number | null>(null);
 
-  // Inject caret CSS once
+  // Inject caret/layout CSS once
   useEffect(() => {
     if (document.getElementById("mtw-caret-style")) return;
     const styleEl = document.createElement("style");
@@ -33,6 +39,7 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
     styleEl.textContent = `
       .markdown-typewriter .mtw-raw { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; white-space: pre-wrap; }
       .markdown-typewriter .mtw-caret { display: inline-block; width: 0; border-right: 2px solid currentColor; margin-left: 2px; animation: mtw-blink 1s steps(1,end) infinite; }
+      .markdown-typewriter.mtw-split .mtw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
       @keyframes mtw-blink { 50% { border-color: transparent; } }
     `;
     document.head.appendChild(styleEl);
@@ -40,16 +47,16 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
 
   // Typing loop over raw markdown
   useEffect(() => {
-    // reset
     setTyped("");
     if (timerRef.current) {
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
     let i = 0;
+    const step = Math.max(1, Math.floor(charsPerTick));
     timerRef.current = window.setInterval(
       () => {
-        i += 1;
+        i = Math.min(markdown.length, i + step);
         setTyped(markdown.slice(0, i));
         if (i >= markdown.length && timerRef.current) {
           window.clearInterval(timerRef.current);
@@ -64,18 +71,25 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
         timerRef.current = null;
       }
     };
-  }, [markdown, delay]);
+  }, [markdown, delay, charsPerTick]);
+
+  const split = showRaw && layout === "split";
 
   return (
-    <div className={`markdown-typewriter ${className}`.trim()} style={style}>
-      {showRaw && (
-        <pre className="mtw-raw">
-          <code>{typed}</code>
-          <span className="mtw-caret" />
-        </pre>
-      )}
-      <div className="mtw-rendered">
-        <ReactMarkdown>{typed}</ReactMarkdown>
+    <div
+      className={`markdown-typewriter ${split ? "mtw-split" : ""} ${className}`.trim()}
+      style={style}
+    >
+      <div className="mtw-grid">
+        {showRaw && (
+          <pre className="mtw-raw">
+            <code>{typed}</code>
+            <span className="mtw-caret" />
+          </pre>
+        )}
+        <div className="mtw-rendered">
+          <ReactMarkdown>{typed}</ReactMarkdown>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import MarkdownTypewriter from "../src/index";
 
 const markdown = `# Welcome to Markdown Typewriter React
@@ -53,13 +53,24 @@ This text has **bold**, *italic*, and \`inline code\` formatting.
 
 const App = () => {
   const [delay, setDelay] = useState(75);
+  const [charsPerTick, setCharsPerTick] = useState(1);
+  const [showRaw, setShowRaw] = useState(false);
+  const [layout, setLayout] = useState<"stack" | "split">("split");
   const [customMarkdown, setCustomMarkdown] = useState(markdown);
 
   return (
     <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
       <h1>Markdown Typewriter React - Demo</h1>
 
-      <div style={{ marginBottom: "20px" }}>
+      <div
+        style={{
+          marginBottom: "12px",
+          display: "flex",
+          gap: 16,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
         <label>
           Typing Delay (ms):
           <input
@@ -71,6 +82,32 @@ const App = () => {
             style={{ margin: "0 10px" }}
           />
           {delay}ms
+        </label>
+        <label>
+          Chars/Tick:
+          <input
+            type="number"
+            min={1}
+            max={10}
+            value={charsPerTick}
+            onChange={(e) => setCharsPerTick(Math.max(1, Number(e.target.value)))}
+            style={{ width: 60, marginLeft: 8 }}
+          />
+        </label>
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+          <input type="checkbox" checked={showRaw} onChange={(e) => setShowRaw(e.target.checked)} />
+          Show raw typing
+        </label>
+        <label>
+          Layout:
+          <select
+            value={layout}
+            onChange={(e) => setLayout(e.target.value as any)}
+            style={{ marginLeft: 8 }}
+          >
+            <option value="stack">Stack</option>
+            <option value="split">Split</option>
+          </select>
         </label>
       </div>
 
@@ -101,6 +138,9 @@ const App = () => {
         <MarkdownTypewriter
           markdown={customMarkdown}
           delay={delay}
+          charsPerTick={charsPerTick}
+          showRaw={showRaw}
+          layout={layout}
           style={{
             fontFamily: "Monaco, Menlo, Ubuntu Mono, monospace",
             lineHeight: "1.6",
@@ -111,4 +151,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+createRoot(document.getElementById("app")!).render(<App />);
