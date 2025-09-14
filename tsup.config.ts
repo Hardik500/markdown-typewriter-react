@@ -8,6 +8,6 @@ export default defineConfig({
   clean: true,
   outDir: "dist",
   outExtension: ({ format }) => ({ js: format === "esm" ? ".mjs" : ".cjs" }),
-  external: ["react", "react-dom", "marked", "typewriter-effect"],
+  external: ["react", "react-dom", "react-markdown"],
   treeshake: true,
 });

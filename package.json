@@ -55,8 +55,7 @@
   },
   "homepage": "https://github.com/Hardik500/markdown-typewriter-react#readme",
   "dependencies": {
-    "marked": "^16.2.1",
-    "typewriter-effect": "^2.22.0"
+    "react-markdown": "^10.1.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
