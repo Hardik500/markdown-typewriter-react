@@ -41,10 +41,9 @@
     "typescript",
     "markdown",
     "typewriter",
-    "react-component",
-    "ui",
     "animation",
-    "text-effect"
+    "typewriter-effect",
+    "markdown-typewriter"
   ],
   "author": "Hardik Khandelwal <hardikkhandelwal500@gmail.com>",
   "license": "MIT",
