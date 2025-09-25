@@ -6,6 +6,12 @@
 - Version bump to 1.1.5
 
 
+## [1.1.5] - 2025-09-25
+
+### Changed
+- Version bump to 1.1.5
+
+
 ### Added
 - Comprehensive test coverage improvements (increased from 78% to 95.31%)
 - 21 comprehensive tests covering all major functionality
