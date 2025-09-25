@@ -12,8 +12,17 @@
   "linter": {
     "rules": {
       "correctness": {
-        "noUnusedVariables": "warn"
+        "noUnusedVariables": "warn",
+        "noUnusedImports": "off"
+      },
+      "style": {
+        "useImportType": "off"
       }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double"
     }
   }
 }

@@ -1,16 +1,13 @@
-import type React from "react";
-import { useId, useState } from "react";
+import React, { useId, useState } from "react";
 import { createRoot } from "react-dom/client";
 import MarkdownTypewriter from "../src/index";
 
 // Simple code block component without syntax highlighting to reduce bundle size
 const CodeBlock = ({
   children,
-  language = "tsx",
   customStyle = {},
 }: {
   children: string;
-  language?: string;
   customStyle?: React.CSSProperties;
 }) => {
   return (
@@ -563,7 +560,7 @@ const App = () => {
             >
               {copiedCode === "current" ? "✓ Copied!" : "Copy"}
             </button>
-            <CodeBlock language="tsx">{currentCode}</CodeBlock>
+            <CodeBlock>{currentCode}</CodeBlock>
           </div>
         </section>
 
@@ -682,7 +679,7 @@ export default App;`,
             >
               {copiedCode === "basic" ? "✓ Copied!" : "Copy"}
             </button>
-            <CodeBlock language="tsx">
+            <CodeBlock>
               {`import React from 'react';
 import MarkdownTypewriter from 'markdown-typewriter-react';
 
