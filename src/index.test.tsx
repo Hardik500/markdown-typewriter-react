@@ -25,7 +25,7 @@ describe("MarkdownTypewriter", () => {
     const { container } = render(<MarkdownTypewriter markdown={markdown} style={customStyle} />);
     const element = container.firstChild as HTMLElement;
     expect(element).toHaveStyle("font-size: 18px");
-    expect(element).toHaveStyle("color: red");
+    expect(element).toHaveStyle("color: rgb(255, 0, 0)");
   });
 
   test("accepts delay prop", () => {
