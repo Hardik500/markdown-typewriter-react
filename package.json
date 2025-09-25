@@ -24,6 +24,8 @@
     "test:coverage": "vitest run --coverage",
     "start": "vite",
     "dev": "vite",
+    "demo:build": "vite build",
+    "demo:preview": "vite preview --host",
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist",
@@ -88,5 +90,8 @@
     "*.{ts,tsx,js,jsx,json,md,css}": [
       "biome check --write"
     ]
+  },
+  "directories": {
+    "example": "example"
   }
 }

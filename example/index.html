@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Markdown Typewriter Example</title>
+  <style>
+    /* Hide the blinking caret; it mispositions with block-level markdown */
+    .markdown-typewriter .Typewriter__cursor { display: none !important; }
+  </style>
 </head>
 <body>
   <div id="app"></div>
-  <script type="module" src="/main.tsx"></script>
+  <script type="module" src="./main.tsx"></script>
 </body>
 </html>
