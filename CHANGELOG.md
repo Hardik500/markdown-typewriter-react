@@ -24,12 +24,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.1] - 2025-09-25
 
+### Fixed
+- Fixed test failures by updating CSS color expectations from "red" to "rgb(255, 0, 0)"
+- Fixed Biome configuration to prevent automatic removal of React imports during commits
+
 ### Added
-- Initial release of MarkdownTypewriter React component
-- Render markdown with typewriter effect
-- TypeScript support with type declarations
-- Dual ESM and CommonJS outputs
-- Basic example app and documentation
+- Node.js 24.8.0 compatibility
+
+## [1.1.0] - 2025-09-25
+
+### Added
+- Bundle size optimization by removing react-syntax-highlighter dependency
+- Simple styled code blocks replacing syntax highlighting
+- Manual chunk splitting for better caching (React and markdown dependencies)
+
+### Changed
+- Reduced bundle size from 959KB to 321KB (67% reduction)
+- Improved build time from 1.06s to 0.51s
+- Removed 472 language chunks for cleaner output
+
+## [1.0.2] - 2025-09-25
 
 ### Changed
 - Migrate tooling to Vite 7 + Vitest 3; tests use `jsdom` environment
@@ -45,6 +59,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Clean npm tarball contents (only dist + metadata)
 
+## [1.0.1] - 2025-09-25
+
+### Added
+- Initial release of MarkdownTypewriter React component
+- Render markdown with typewriter effect
+- TypeScript support with type declarations
+- Dual ESM and CommonJS outputs
+- Basic example app and documentation
+
 [Unreleased]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.2...HEAD
 [1.1.2]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.1...v1.1.2
-[1.1.1]: https://github.com/Hardik500/markdown-typewriter-react/releases/tag/v1.1.1
+[1.1.1]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.0.2...v1.1.0
+[1.0.2]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/Hardik500/markdown-typewriter-react/releases/tag/v1.0.1
