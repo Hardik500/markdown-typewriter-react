@@ -19,6 +19,12 @@ A React component that renders markdown content with a smooth, natural typewrite
 ## 📦 Installation
 
 ```bash
+pnpm add markdown-typewriter-react
+```
+
+or
+
+```bash
 npm install markdown-typewriter-react
 ```
 
@@ -144,7 +150,7 @@ test('renders markdown content', () => {
 ### Prerequisites
 
 - Node.js >= 20.19.0
-- npm >= 8.0.0
+- pnpm >= 8.0.0
 
 ### Setup
 
@@ -154,21 +160,21 @@ git clone https://github.com/Hardik500/markdown-typewriter-react.git
 cd markdown-typewriter-react
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm start
+pnpm start
 ```
 
 ### Available Scripts
 
-- `npm test` - Run tests
-- `npm test:watch` - Run tests in watch mode
-- `npm test:coverage` - Run tests with coverage
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run Biome lint
-- `npm run lint:fix` - Apply Biome fixes
+- `pnpm test` - Run tests
+- `pnpm test:watch` - Run tests in watch mode
+- `pnpm test:coverage` - Run tests with coverage
+- `pnpm start` - Start development server
+- `pnpm run build` - Build for production
+- `pnpm run lint` - Run Biome lint
+- `pnpm run lint:fix` - Apply Biome fixes
 
 ## 📄 License
 

@@ -29,8 +29,8 @@
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run test && npm run build",
-    "prepare": "husky install",
+    "prepublishOnly": "pnpm run test && pnpm run build",
+    "prepare": "husky",
     "lint": "biome lint .",
     "lint:fix": "biome check --write .",
     "format": "biome format .",
@@ -86,8 +86,9 @@
   },
   "engines": {
     "node": ">=20.19.0",
-    "npm": ">=8.0.0"
+    "pnpm": ">=8.0.0"
   },
+  "packageManager": "pnpm@9.0.0",
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "biome check --write --files-ignore-unknown=true"

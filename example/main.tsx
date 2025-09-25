@@ -377,6 +377,7 @@ const App = () => {
         {/* Installation */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>🚀 Installation</h2>
+          <div style={styles.installCode}>pnpm add markdown-typewriter-react</div>
           <div style={styles.installCode}>npm install markdown-typewriter-react</div>
           <div style={styles.installCode}>yarn add markdown-typewriter-react</div>
         </section>
