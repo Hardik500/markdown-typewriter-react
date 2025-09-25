@@ -42,11 +42,21 @@ if [ -n "$(git status --porcelain)" ]; then
     exit 1
 fi
 
-# Get release type
+# Get release type and dry-run flag
 RELEASE_TYPE=${1:-patch}
+DRY_RUN=${2:-false}
+
 if [[ ! "$RELEASE_TYPE" =~ ^(patch|minor|major)$ ]]; then
     print_error "Invalid release type. Use: patch, minor, or major"
+    print_error "Usage: $0 [patch|minor|major] [--dry-run]"
     exit 1
+fi
+
+if [[ "$2" == "--dry-run" || "$DRY_RUN" == "--dry-run" ]]; then
+    DRY_RUN=true
+    print_warning "DRY RUN MODE - No changes will be pushed"
+else
+    DRY_RUN=false
 fi
 
 print_status "Creating $RELEASE_TYPE release..."
@@ -76,24 +86,42 @@ print_status "Building demo..."
 pnpm run demo:build
 
 # Commit version bump
-print_status "Committing version bump..."
-git add package.json
-git commit -m "chore: bump version to $NEW_VERSION"
+if [ "$DRY_RUN" = true ]; then
+    print_warning "DRY RUN: Would commit version bump to $NEW_VERSION"
+    # Reset the version change in dry run
+    git checkout -- package.json
+else
+    print_status "Committing version bump..."
+    git add package.json
+    git commit -m "chore: bump version to $NEW_VERSION"
+fi
 
 # Create and push tag
 TAG_NAME="v$NEW_VERSION"
 print_status "Creating tag: $TAG_NAME"
-git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
 
-print_status "Pushing changes and tag..."
-git push origin main
-git push origin "$TAG_NAME"
+if [ "$DRY_RUN" = true ]; then
+    print_warning "DRY RUN: Would create tag $TAG_NAME"
+    print_warning "DRY RUN: Would push changes and tag to origin"
+    print_success "DRY RUN completed successfully!"
+    print_status "In real run, GitHub Actions would:"
+    print_status "  1. Run tests and build"
+    print_status "  2. Publish to npm"
+    print_status "  3. Create GitHub release with changelog"
+    print_status "  4. Deploy demo to GitHub Pages"
+else
+    git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
 
-print_success "Release $TAG_NAME created successfully!"
-print_status "GitHub Actions will now:"
-print_status "  1. Run tests and build"
-print_status "  2. Publish to npm"
-print_status "  3. Create GitHub release with changelog"
-print_status "  4. Deploy demo to GitHub Pages"
-print_status ""
-print_status "Check the Actions tab: https://github.com/Hardik500/markdown-typewriter-react/actions"
+    print_status "Pushing changes and tag..."
+    git push origin main
+    git push origin "$TAG_NAME"
+
+    print_success "Release $TAG_NAME created successfully!"
+    print_status "GitHub Actions will now:"
+    print_status "  1. Run tests and build"
+    print_status "  2. Publish to npm"
+    print_status "  3. Create GitHub release with changelog"
+    print_status "  4. Deploy demo to GitHub Pages"
+    print_status ""
+    print_status "Check the Actions tab: https://github.com/Hardik500/markdown-typewriter-react/actions"
+fi
