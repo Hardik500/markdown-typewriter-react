@@ -85,15 +85,40 @@ pnpm run build
 print_status "Building demo..."
 pnpm run demo:build
 
+# Update changelog
+print_status "Updating changelog..."
+CURRENT_DATE=$(date +%Y-%m-%d)
+TEMP_CHANGELOG=$(mktemp)
+
+# Create new changelog entry
+cat > "$TEMP_CHANGELOG" << EOF
+## [Unreleased]
+
+## [$NEW_VERSION] - $CURRENT_DATE
+
+### Changed
+- Version bump to $NEW_VERSION
+
+EOF
+
+# Append existing changelog content (skip the first "## [Unreleased]" section)
+sed -n '/^## \[Unreleased\]/,/^## \[.*\]/{ /^## \[Unreleased\]/d; /^## \[.*\]/!p; }; /^## \[.*\]/,$p' CHANGELOG.md >> "$TEMP_CHANGELOG"
+
+# Replace the changelog
+mv "$TEMP_CHANGELOG" CHANGELOG.md
+
+print_success "Changelog updated with version $NEW_VERSION"
+
 # Commit version bump
 if [ "$DRY_RUN" = true ]; then
     print_warning "DRY RUN: Would commit version bump to $NEW_VERSION"
-    # Reset the version change in dry run
-    git checkout -- package.json
+    print_warning "DRY RUN: Would update CHANGELOG.md"
+    # Reset the changes in dry run
+    git checkout -- package.json CHANGELOG.md
 else
-    print_status "Committing version bump..."
-    git add package.json
-    git commit -m "chore: bump version to $NEW_VERSION"
+    print_status "Committing version bump and changelog..."
+    git add package.json CHANGELOG.md
+    git commit -m "chore: bump version to $NEW_VERSION and update changelog"
 fi
 
 # Create and push tag
