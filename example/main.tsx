@@ -404,8 +404,8 @@ const App = () => {
       <header style={styles.header}>
         <h1 style={styles.title}>Markdown Typewriter React</h1>
         <p style={styles.subtitle}>
-          A React component that renders markdown content with a smooth, natural typewriter animation.
-          Perfect for creating engaging documentation, tutorials, and interactive demos.
+          A React component that renders markdown content with a smooth, natural typewriter
+          animation. Perfect for creating engaging documentation, tutorials, and interactive demos.
         </p>
         <div style={styles.linkSection}>
           <a
@@ -679,7 +679,14 @@ const App = () => {
 
           {/* Basic Usage */}
           <div style={{ marginBottom: "2rem" }}>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#2d3748", marginBottom: "1rem" }}>
+            <h3
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: "600",
+                color: "#2d3748",
+                marginBottom: "1rem",
+              }}
+            >
               Basic Usage
             </h3>
             <p style={{ color: "#4a5568", marginBottom: "1rem" }}>
@@ -732,35 +739,6 @@ This is **markdown** with a *typewriter* effect.\`;
 
 export default App;`}
               </CodeBlock>
-            </div>
-          </div>
-
-          {/* Current Demo Code */}
-          <div>
-            <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#2d3748", marginBottom: "1rem" }}>
-              Current Demo Configuration
-            </h3>
-            <p style={{ color: "#4a5568", marginBottom: "1rem" }}>
-              This is the React code that generates the demo above with your current settings:
-            </p>
-            <div style={styles.codeBlock}>
-              <button
-                type="button"
-                style={{
-                  ...styles.copyButton,
-                  opacity: copiedCode === "current" ? 1 : 0.7,
-                }}
-                onClick={() => copyToClipboard(currentCode, "current")}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = "1";
-                }}
-                onMouseLeave={(e) => {
-                  if (copiedCode !== "current") e.currentTarget.style.opacity = "0.7";
-                }}
-              >
-                {copiedCode === "current" ? "✓ Copied!" : "Copy"}
-              </button>
-              <CodeBlock>{currentCode}</CodeBlock>
             </div>
           </div>
         </section>
