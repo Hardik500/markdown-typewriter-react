@@ -1,6 +1,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface MarkdownTypewriterProps {
   /** The markdown content to render */
@@ -40,6 +41,10 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
       .markdown-typewriter .mtw-raw { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; white-space: pre-wrap; }
       .markdown-typewriter .mtw-caret { display: inline-block; width: 0; border-right: 2px solid currentColor; margin-left: 2px; animation: mtw-blink 1s steps(1,end) infinite; }
       .markdown-typewriter.mtw-split .mtw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+      .markdown-typewriter table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+      .markdown-typewriter th, .markdown-typewriter td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+      .markdown-typewriter th { background-color: #f5f5f5; font-weight: 600; }
+      .markdown-typewriter tr:nth-child(even) { background-color: #f9f9f9; }
       @keyframes mtw-blink { 50% { border-color: transparent; } }
     `;
     document.head.appendChild(styleEl);
@@ -88,7 +93,7 @@ const MarkdownTypewriter: React.FC<MarkdownTypewriterProps> = ({
           </pre>
         )}
         <div className="mtw-rendered">
-          <ReactMarkdown>{typed}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{typed}</ReactMarkdown>
         </div>
       </div>
     </div>

@@ -274,4 +274,33 @@ describe("MarkdownTypewriter", () => {
 
     clearIntervalSpy.mockRestore();
   });
+
+  test("renders tables with GitHub Flavored Markdown", async () => {
+    vi.useFakeTimers();
+
+    const tableMarkdown = `| Feature | Status |
+|---------|--------|
+| Tables  | Ready  |`;
+
+    const { container } = render(<MarkdownTypewriter markdown={tableMarkdown} delay={10} />);
+
+    // Advance timers to complete the typing animation
+    act(() => {
+      vi.advanceTimersByTime(1000); // Should be enough to complete the table
+    });
+
+    // Should render table elements
+    const table = container.querySelector('table');
+    expect(table).toBeInTheDocument();
+
+    // Should have table headers
+    const headers = container.querySelectorAll('th');
+    expect(headers).toHaveLength(2);
+
+    // Should have table cells
+    const cells = container.querySelectorAll('td');
+    expect(cells).toHaveLength(2); // 1 row × 2 columns
+
+    vi.useRealTimers();
+  });
 });
