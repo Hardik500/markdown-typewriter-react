@@ -1,8 +1,39 @@
+import type React from "react";
 import { useId, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import MarkdownTypewriter from "../src/index";
+
+// Simple code block component without syntax highlighting to reduce bundle size
+const CodeBlock = ({
+  children,
+  language = "tsx",
+  customStyle = {},
+}: {
+  children: string;
+  language?: string;
+  customStyle?: React.CSSProperties;
+}) => {
+  return (
+    <pre
+      style={{
+        backgroundColor: "#2d3748",
+        color: "#e2e8f0",
+        padding: "1rem",
+        borderRadius: "0.5rem",
+        overflow: "auto",
+        fontSize: "0.85rem",
+        fontFamily:
+          "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
+        lineHeight: "1.5",
+        whiteSpace: "pre-wrap",
+        wordBreak: "break-word",
+        ...customStyle,
+      }}
+    >
+      <code>{children}</code>
+    </pre>
+  );
+};
 
 // Preset markdown examples
 const presetExamples = {
@@ -532,17 +563,7 @@ const App = () => {
             >
               {copiedCode === "current" ? "✓ Copied!" : "Copy"}
             </button>
-            <SyntaxHighlighter
-              language="tsx"
-              style={tomorrow}
-              customStyle={{
-                margin: 0,
-                backgroundColor: "transparent",
-                fontSize: "0.85rem",
-              }}
-            >
-              {currentCode}
-            </SyntaxHighlighter>
+            <CodeBlock language="tsx">{currentCode}</CodeBlock>
           </div>
         </section>
 
@@ -661,15 +682,7 @@ export default App;`,
             >
               {copiedCode === "basic" ? "✓ Copied!" : "Copy"}
             </button>
-            <SyntaxHighlighter
-              language="tsx"
-              style={tomorrow}
-              customStyle={{
-                margin: 0,
-                backgroundColor: "transparent",
-                fontSize: "0.85rem",
-              }}
-            >
+            <CodeBlock language="tsx">
               {`import React from 'react';
 import MarkdownTypewriter from 'markdown-typewriter-react';
 
@@ -682,7 +695,7 @@ This is **markdown** with a *typewriter* effect.\`;
 };
 
 export default App;`}
-            </SyntaxHighlighter>
+            </CodeBlock>
           </div>
         </section>
       </div>

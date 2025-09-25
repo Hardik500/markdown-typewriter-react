@@ -13,6 +13,18 @@ export default defineConfig({
   build: {
     outDir: "../docs",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React core
+          'react-vendor': ['react', 'react-dom'],
+          // Markdown processing
+          'markdown-vendor': ['react-markdown'],
+        },
+      },
+    },
+    // Increase chunk size warning limit for demo
+    chunkSizeWarningLimit: 1000,
   },
   resolve: {
     alias: {
