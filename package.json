@@ -30,6 +30,7 @@
     "release:patch": "./scripts/release.sh patch",
     "release:minor": "./scripts/release.sh minor",
     "release:major": "./scripts/release.sh major",
+    "changelog:update": "./scripts/update-changelog.sh",
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist",
