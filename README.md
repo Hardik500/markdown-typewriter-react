@@ -6,39 +6,34 @@
 
 A React component that renders markdown content with a smooth, natural typewriter animation. It types the raw markdown character-by-character while rendering it progressively in real time — perfect for demos, docs, and tutorials.
 
-## 🚀 [Live Demo](https://hardik500.github.io/markdown-typewriter-react/)
+## 🚀 Live Demo
 
 **[Try it out →](https://hardik500.github.io/markdown-typewriter-react/)**
 
-## ✨ Features
+## Features
 
-- 🎯 **Simple API** - Just pass markdown content and watch it type out
-- ⚡ **Lightweight** - Minimal dependencies, optimized bundle size
-- 🎨 **Customizable** - Configurable typing speed and behavior
-- 📱 **Responsive** - Works on all screen sizes
-- 🔧 **TypeScript** - Full TypeScript support with type definitions
-- ⚛️ **React 16.8+** - Compatible with modern React versions
-- 🧪 **Well Tested** - Comprehensive test coverage
+- **Simple API** - Just pass markdown content and watch it type out
+- **Lightweight** - Minimal dependencies, optimized bundle size
+- **Customizable** - Configurable typing speed and behavior
+- **Responsive** - Works on all screen sizes
+- **TypeScript** - Full TypeScript support with type definitions
+- **React 16.8+** - Compatible with modern React versions
+- **Well Tested** - Comprehensive test coverage
 
-## 📦 Installation
+## Installation
 
 ```bash
+# Using pnpm (recommended)
 pnpm add markdown-typewriter-react
-```
 
-or
-
-```bash
+# Using npm
 npm install markdown-typewriter-react
-```
 
-or
-
-```bash
+# Using yarn
 yarn add markdown-typewriter-react
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ```jsx
 import React from 'react';
@@ -72,7 +67,7 @@ export default App;
 
 The main component that renders markdown with typewriter effect.
 
-#### Props
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -84,7 +79,7 @@ The main component that renders markdown with typewriter effect.
 | `className` | `string` | - | Additional CSS class name |
 | `style` | `React.CSSProperties` | - | Inline styles |
 
-#### Example with Custom Options
+### Example with Custom Options
 
 ```jsx
 import React from 'react';
@@ -98,7 +93,7 @@ This text types out with a **slower** delay.
   `;
 
   return (
-    <MarkdownTypewriter 
+    <MarkdownTypewriter
       markdown={content}
       delay={150}
       className="my-custom-class"
@@ -108,7 +103,7 @@ This text types out with a **slower** delay.
 };
 ```
 
-## 🎨 Styling
+## Styling
 
 The component renders a `div` with the class `markdown-typewriter`. You can style it using CSS:
 
@@ -133,7 +128,7 @@ The component renders a `div` with the class `markdown-typewriter`. You can styl
 }
 ```
 
-## 🧪 Testing
+## Testing
 
 ```jsx
 import React from 'react';
@@ -143,7 +138,7 @@ import MarkdownTypewriter from 'markdown-typewriter-react';
 test('renders markdown content', () => {
   const markdown = '# Test Heading\n\nThis is a test.';
   render(<MarkdownTypewriter markdown={markdown} />);
-  
+
   // The component will render the content
   expect(document.body).toBeInTheDocument();
 });
@@ -180,11 +175,7 @@ pnpm start
 - `pnpm run lint` - Run Biome lint
 - `pnpm run lint:fix` - Apply Biome fixes
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -194,13 +185,17 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 🐛 Issues
+## Issues
 
 If you find a bug or have a feature request, please open an issue on [GitHub](https://github.com/Hardik500/markdown-typewriter-react/issues).
 
-## 📈 Changelog
+## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
