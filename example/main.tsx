@@ -38,15 +38,15 @@ const presetExamples = {
 
 This is a **React component** that renders markdown with a smooth typewriter animation effect.
 
-## Features
+## Key Features
 
-- 🎯 **Simple API** - Just pass markdown content
-- ⚡ **Lightweight** - Minimal dependencies
-- 🎨 **Customizable** - Configurable typing speed
-- 📱 **Responsive** - Works on all screen sizes
-- 🔧 **TypeScript** - Full TypeScript support
+- **Simple API** - Just pass markdown content and watch it type out
+- **Lightweight** - Minimal dependencies, optimized bundle size
+- **Customizable** - Configurable typing speed and behavior
+- **Responsive** - Works seamlessly on all screen sizes
+- **TypeScript** - Full TypeScript support with type definitions
 
-*Enjoy using Markdown Typewriter React!*`,
+*Experience the magic of animated markdown rendering!*`,
 
   codeExample: `# Code Examples
 
@@ -123,14 +123,14 @@ Check out the [GitHub repository](https://github.com/Hardik500/markdown-typewrit
 - [ ] Pending task
 - [ ] Another pending task
 
-## Tables
+## Feature Comparison
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| Typewriter Effect | Smooth character-by-character typing | ✅ |
-| Markdown Support | Full markdown rendering | ✅ |
-| Customizable Speed | Adjustable typing delay | ✅ |
-| TypeScript | Full type definitions | ✅ |`,
+| Typewriter Effect | Smooth character-by-character typing | Ready |
+| Markdown Support | Full markdown rendering | Ready |
+| Customizable Speed | Adjustable typing delay | Ready |
+| TypeScript | Full type definitions | Ready |`,
 };
 
 // Styles
@@ -146,36 +146,60 @@ const styles = {
     padding: 0,
   },
   header: {
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
     color: "white",
-    padding: "3rem 2rem",
+    padding: "4rem 2rem",
     textAlign: "center" as const,
-    marginBottom: "2rem",
+    marginBottom: "3rem",
   },
   title: {
-    fontSize: "2.5rem",
-    fontWeight: "bold",
-    margin: "0 0 1rem 0",
+    fontSize: "3rem",
+    fontWeight: "700",
+    margin: "0 0 1.5rem 0",
     textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+    letterSpacing: "-0.025em",
   },
   subtitle: {
-    fontSize: "1.2rem",
-    opacity: 0.9,
-    margin: "0 0 2rem 0",
-    maxWidth: "600px",
+    fontSize: "1.25rem",
+    opacity: 0.95,
+    margin: "0 0 2.5rem 0",
+    maxWidth: "700px",
     marginLeft: "auto",
     marginRight: "auto",
+    lineHeight: "1.7",
   },
   githubLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.75rem",
+    color: "white",
+    textDecoration: "none",
+    backgroundColor: "rgba(255,255,255,0.15)",
+    padding: "1rem 2rem",
+    borderRadius: "50px",
+    border: "2px solid rgba(255,255,255,0.25)",
+    transition: "all 0.3s ease",
+    fontSize: "1.1rem",
+    fontWeight: "600",
+    backdropFilter: "blur(10px)",
+  },
+  linkSection: {
+    display: "flex",
+    gap: "1rem",
+    justifyContent: "center",
+    flexWrap: "wrap" as const,
+    marginTop: "1rem",
+  },
+  npmLink: {
     display: "inline-flex",
     alignItems: "center",
     gap: "0.5rem",
     color: "white",
     textDecoration: "none",
-    backgroundColor: "rgba(255,255,255,0.2)",
+    backgroundColor: "rgba(255,255,255,0.1)",
     padding: "0.75rem 1.5rem",
     borderRadius: "50px",
-    border: "2px solid rgba(255,255,255,0.3)",
+    border: "1px solid rgba(255,255,255,0.2)",
     transition: "all 0.3s ease",
     fontSize: "1rem",
     fontWeight: "500",
@@ -380,39 +404,85 @@ const App = () => {
       <header style={styles.header}>
         <h1 style={styles.title}>Markdown Typewriter React</h1>
         <p style={styles.subtitle}>
-          A React component that renders markdown with a smooth, natural typewriter animation. Watch
-          as raw markdown is typed character-by-character and rendered in real-time.
+          A React component that renders markdown content with a smooth, natural typewriter animation.
+          Perfect for creating engaging documentation, tutorials, and interactive demos.
         </p>
-        <a
-          href="https://github.com/Hardik500/markdown-typewriter-react"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={styles.githubLink}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.3)";
-            e.currentTarget.style.transform = "translateY(-2px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.2)";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-        >
-          <span>⭐</span> View on GitHub
-        </a>
+        <div style={styles.linkSection}>
+          <a
+            href="https://github.com/Hardik500/markdown-typewriter-react"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.githubLink}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.25)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            <span>⭐</span> View on GitHub
+          </a>
+          <a
+            href="https://www.npmjs.com/package/markdown-typewriter-react"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.npmLink}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.2)";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            <span>📦</span> npm Package
+          </a>
+        </div>
       </header>
 
       <div style={styles.content}>
-        {/* Installation */}
+        {/* Quick Start */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>🚀 Installation</h2>
+          <h2 style={styles.sectionTitle}>Quick Start</h2>
+          <p style={{ color: "#4a5568", marginBottom: "1.5rem", fontSize: "1.1rem" }}>
+            Get started with Markdown Typewriter React in seconds:
+          </p>
           <div style={styles.installCode}>pnpm add markdown-typewriter-react</div>
           <div style={styles.installCode}>npm install markdown-typewriter-react</div>
           <div style={styles.installCode}>yarn add markdown-typewriter-react</div>
         </section>
 
+        {/* Live Demo */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Live Demo</h2>
+          <p style={{ color: "#4a5568", marginBottom: "1.5rem", fontSize: "1.1rem" }}>
+            Watch markdown content come to life with smooth typewriter animation:
+          </p>
+          <div style={styles.demoArea}>
+            <MarkdownTypewriter
+              markdown={customMarkdown}
+              delay={delay}
+              charsPerTick={charsPerTick}
+              showRaw={showRaw}
+              layout={layout}
+              style={{
+                fontFamily: "system-ui, -apple-system, sans-serif",
+                lineHeight: "1.6",
+                fontSize: "1rem",
+              }}
+            />
+          </div>
+        </section>
+
         {/* Controls */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>⚙️ Interactive Controls</h2>
+          <h2 style={styles.sectionTitle}>Interactive Controls</h2>
+          <p style={{ color: "#4a5568", marginBottom: "1.5rem" }}>
+            Customize the animation behavior and see changes in real-time:
+          </p>
           <div style={styles.controlsGrid}>
             <div style={styles.control}>
               <label style={styles.label} htmlFor={delayId}>
@@ -474,7 +544,10 @@ const App = () => {
 
         {/* Preset Examples */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>📝 Example Templates</h2>
+          <h2 style={styles.sectionTitle}>Example Templates</h2>
+          <p style={{ color: "#4a5568", marginBottom: "1.5rem" }}>
+            Try different markdown examples or create your own:
+          </p>
           <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1rem", flexWrap: "wrap" }}>
             {Object.entries(presetExamples).map(([key, _]) => (
               <button
@@ -518,55 +591,12 @@ const App = () => {
           />
         </section>
 
-        {/* Live Demo */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>✨ Live Demo</h2>
-          <div style={styles.demoArea}>
-            <MarkdownTypewriter
-              markdown={customMarkdown}
-              delay={delay}
-              charsPerTick={charsPerTick}
-              showRaw={showRaw}
-              layout={layout}
-              style={{
-                fontFamily: "system-ui, -apple-system, sans-serif",
-                lineHeight: "1.6",
-                fontSize: "1rem",
-              }}
-            />
-          </div>
-        </section>
-
-        {/* Code Example */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>💻 Current Code</h2>
-          <p style={{ color: "#4a5568", marginBottom: "1rem" }}>
-            This is the React code that generates the demo above with your current settings:
-          </p>
-          <div style={styles.codeBlock}>
-            <button
-              type="button"
-              style={{
-                ...styles.copyButton,
-                opacity: copiedCode === "current" ? 1 : 0.7,
-              }}
-              onClick={() => copyToClipboard(currentCode, "current")}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = "1";
-              }}
-              onMouseLeave={(e) => {
-                if (copiedCode !== "current") e.currentTarget.style.opacity = "0.7";
-              }}
-            >
-              {copiedCode === "current" ? "✓ Copied!" : "Copy"}
-            </button>
-            <CodeBlock>{currentCode}</CodeBlock>
-          </div>
-        </section>
-
         {/* Props Documentation */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>📚 Props Documentation</h2>
+          <h2 style={styles.sectionTitle}>API Reference</h2>
+          <p style={{ color: "#4a5568", marginBottom: "1.5rem" }}>
+            Complete reference for all available props and their usage:
+          </p>
           <table style={styles.propsTable}>
             <thead>
               <tr>
@@ -643,19 +673,28 @@ const App = () => {
           </table>
         </section>
 
-        {/* Basic Usage */}
+        {/* Usage Examples */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>🎯 Basic Usage</h2>
-          <div style={styles.codeBlock}>
-            <button
-              type="button"
-              style={{
-                ...styles.copyButton,
-                opacity: copiedCode === "basic" ? 1 : 0.7,
-              }}
-              onClick={() =>
-                copyToClipboard(
-                  `import React from 'react';
+          <h2 style={styles.sectionTitle}>Usage Examples</h2>
+
+          {/* Basic Usage */}
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#2d3748", marginBottom: "1rem" }}>
+              Basic Usage
+            </h3>
+            <p style={{ color: "#4a5568", marginBottom: "1rem" }}>
+              The simplest way to get started:
+            </p>
+            <div style={styles.codeBlock}>
+              <button
+                type="button"
+                style={{
+                  ...styles.copyButton,
+                  opacity: copiedCode === "basic" ? 1 : 0.7,
+                }}
+                onClick={() =>
+                  copyToClipboard(
+                    `import React from 'react';
 import MarkdownTypewriter from 'markdown-typewriter-react';
 
 const App = () => {
@@ -667,20 +706,20 @@ This is **markdown** with a *typewriter* effect.\`;
 };
 
 export default App;`,
-                  "basic",
-                )
-              }
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = "1";
-              }}
-              onMouseLeave={(e) => {
-                if (copiedCode !== "basic") e.currentTarget.style.opacity = "0.7";
-              }}
-            >
-              {copiedCode === "basic" ? "✓ Copied!" : "Copy"}
-            </button>
-            <CodeBlock>
-              {`import React from 'react';
+                    "basic",
+                  )
+                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  if (copiedCode !== "basic") e.currentTarget.style.opacity = "0.7";
+                }}
+              >
+                {copiedCode === "basic" ? "✓ Copied!" : "Copy"}
+              </button>
+              <CodeBlock>
+                {`import React from 'react';
 import MarkdownTypewriter from 'markdown-typewriter-react';
 
 const App = () => {
@@ -692,7 +731,37 @@ This is **markdown** with a *typewriter* effect.\`;
 };
 
 export default App;`}
-            </CodeBlock>
+              </CodeBlock>
+            </div>
+          </div>
+
+          {/* Current Demo Code */}
+          <div>
+            <h3 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#2d3748", marginBottom: "1rem" }}>
+              Current Demo Configuration
+            </h3>
+            <p style={{ color: "#4a5568", marginBottom: "1rem" }}>
+              This is the React code that generates the demo above with your current settings:
+            </p>
+            <div style={styles.codeBlock}>
+              <button
+                type="button"
+                style={{
+                  ...styles.copyButton,
+                  opacity: copiedCode === "current" ? 1 : 0.7,
+                }}
+                onClick={() => copyToClipboard(currentCode, "current")}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  if (copiedCode !== "current") e.currentTarget.style.opacity = "0.7";
+                }}
+              >
+                {copiedCode === "current" ? "✓ Copied!" : "Copy"}
+              </button>
+              <CodeBlock>{currentCode}</CodeBlock>
+            </div>
           </div>
         </section>
       </div>
