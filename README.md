@@ -6,6 +6,10 @@
 
 A React component that renders markdown content with a smooth, natural typewriter animation. It types the raw markdown character-by-character while rendering it progressively in real time — perfect for demos, docs, and tutorials.
 
+## 🚀 [Live Demo](https://hardik500.github.io/markdown-typewriter-react/)
+
+**[Try it out →](https://hardik500.github.io/markdown-typewriter-react/)**
+
 ## ✨ Features
 
 - 🎯 **Simple API** - Just pass markdown content and watch it type out

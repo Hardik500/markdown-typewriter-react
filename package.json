@@ -55,7 +55,8 @@
   "bugs": {
     "url": "https://github.com/Hardik500/markdown-typewriter-react/issues"
   },
-  "homepage": "https://hardik500.github.io/markdown-typewriter-react/",
+  "homepage": "https://github.com/Hardik500/markdown-typewriter-react#readme",
+  "demo": "https://hardik500.github.io/markdown-typewriter-react/",
   "dependencies": {
     "react-markdown": "^10.1.0"
   },
