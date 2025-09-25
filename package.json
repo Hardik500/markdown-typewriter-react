@@ -89,7 +89,13 @@
     "npm": ">=8.0.0"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,md,css}": [
+    "src/**/*.{ts,tsx}": [
+      "biome check --write --files-ignore-unknown=true"
+    ],
+    "example/**/*.{ts,tsx}": [
+      "biome check --write --files-ignore-unknown=true"
+    ],
+    "*.{json,md,css}": [
       "biome check --write --files-ignore-unknown=true"
     ]
   },
