@@ -383,21 +383,6 @@ const App = () => {
     setCustomMarkdown(presetExamples[presetKey as keyof typeof presetExamples]);
   };
 
-  const currentCode = `import React from 'react';
-import MarkdownTypewriter from 'markdown-typewriter-react';
-
-const App = () => {
-  return (
-    <MarkdownTypewriter
-      markdown={\`${customMarkdown.slice(0, 100)}...\`}
-      delay={${delay}}
-      charsPerTick={${charsPerTick}}
-      showRaw={${showRaw}}
-      layout="${layout}"
-    />
-  );
-};`;
-
   return (
     <div style={styles.container}>
       {/* Header */}
