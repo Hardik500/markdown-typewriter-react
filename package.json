@@ -62,7 +62,7 @@
   "homepage": "https://github.com/Hardik500/markdown-typewriter-react#readme",
   "demo": "https://hardik500.github.io/markdown-typewriter-react/",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "react-markdown": "^10.1.0",
