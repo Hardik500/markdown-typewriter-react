@@ -1,6 +1,6 @@
 {
   "name": "markdown-typewriter-react",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Typewriter animation for Markdown in React.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
