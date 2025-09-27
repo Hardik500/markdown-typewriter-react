@@ -1,43 +1,35 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ## [Unreleased]
 
 ## [1.2.2] - 2025-09-27
 
-### Changed
-- Version bump to 1.2.2
-
-
-## [1.2.1] - 2025-09-26
-
-### Changed
-- Version bump to 1.2.1
-
-
-## [1.2.0] - 2025-09-25
+### Added
+- GitHub Flavored Markdown table support with remark-gfm plugin
+- Professional table styling with borders, headers, and alternating row colors
+- Demo video in README showing component functionality
+- Comprehensive table rendering test
 
 ### Changed
-- Version bump to 1.2.0
+- Improved README Live Demo section formatting
+- Enhanced markdown rendering capabilities with full GFM support
 
-
-## [1.1.5] - 2025-09-25
-
-### Changed
-- Version bump to 1.1.5
-
-
-## [1.1.5] - 2025-09-25
-
-### Changed
-- Version bump to 1.1.5
-
+## [1.2.1] - 2025-09-27
 
 ### Added
-- Comprehensive test coverage improvements (increased from 78% to 95.31%)
-- 21 comprehensive tests covering all major functionality
+- Comprehensive test coverage improvements (increased from 78% to 95.38%)
+- 22 comprehensive tests covering all major functionality
 - Tests for timer management, animation completion, and prop changes
-- Tests for CSS injection, empty markdown, and error conditions
+- Tests for CSS injection, empty markdown, error conditions, and table rendering
 - Professional demo landing page design improvements
 - Better content organization and user flow in demo
 - Enhanced header design with dual navigation links
+- Changelog management automation with update scripts
 
 ### Fixed
 - Removed unused currentCode variable in demo
@@ -123,7 +115,9 @@
 - Dual ESM and CommonJS outputs
 - Basic example app and documentation
 
-[Unreleased]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.4...HEAD
+[Unreleased]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.2.1...v1.2.2
+[1.2.1]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.4...v1.2.1
 [1.1.4]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/Hardik500/markdown-typewriter-react/compare/v1.1.1...v1.1.2
