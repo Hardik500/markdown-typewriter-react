@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [1.2.5] - 2025-09-28
+
+### Changed
+- Version bump to 1.2.5
+
+
 ## [1.2.4] - 2025-09-28
 
 ### Changed
