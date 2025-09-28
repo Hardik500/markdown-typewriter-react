@@ -1,5 +1,5 @@
 {
-  "name": "markdown-typewriter-react",
+  "name": "@hardik500/markdown-typewriter-react",
   "version": "1.2.5",
   "description": "Typewriter animation for Markdown in React.",
   "main": "dist/index.cjs",
